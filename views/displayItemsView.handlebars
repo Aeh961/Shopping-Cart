@@ -1,0 +1,46 @@
+<div class="container">
+	<div class="table-responsive">
+		<table class="table table-condensed">
+			{{#if data}}
+			<thead>
+				<tr>
+					<th>Item Image</th>
+					<th>Item Name</th>
+					<th>Description</th>
+					<th>Price</th>
+					<th>Quantity</th>
+
+				</tr>
+			</thead>
+			{{else}}
+			<tr>
+				<td colspan="5">Add Items</td>
+			</tr>
+			{{/if}}
+			<tbody>
+				{{#each data}}
+				<tr>
+					<td><img src="{{this.imageUrl}}" alt="{{this.imageUrl}}"></td>
+					<td>{{this.itemName}}</td>
+					<td>{{this.description}}</td>
+					<td>${{this.price}}</td>
+					<td>{{this.quantity}}</td>
+
+					<td>
+						<a href="/items/edit/{{this.id}}">Edit</a> |
+						<a href="/items/delete/{{this.id}}">Delete</a>
+					</td>
+				</tr>
+				{{/each}}
+
+			</tbody>
+			<tfooter>
+				<tr>
+					<td>
+						<button class="btn btn-primary" onClick="addItem();">Add</button>
+					</td>
+				</tr>
+			</tfooter>
+		</table>
+	</div>
+</div>

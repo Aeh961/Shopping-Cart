@@ -1,0 +1,39 @@
+<div class="box">
+  {{#if data}}
+  <table>
+    <thead>
+      <tr>
+        <th><h1>Customer</h1></th>
+
+      </tr>
+    </thead>
+    <tbody>
+      {{#each data}}
+      <tr>
+        <td>
+
+         <h3>{{ firstName }} {{ lastName }}</h3>
+        </td>
+        <td>
+          <button class="btn btn-primary" onClick="customerDisplayItems('{{ id }}');">View Items</button>
+        </td>
+        <td>
+          <button class="btn btn-primary" onClick="customerDisplayOrder('{{ id }}');">Shopping Orders</button>
+        </td>
+        </td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+  {{else}}
+  <p>No customers found</p>
+  {{/if}}
+
+  <tfooter>
+    <tr>
+      <td>
+        <button class="btn btn-primary" onClick="newCustomer();">Click here if you are a new customer</button>
+      </td>
+    </tr>
+  </tfooter>
+</div>

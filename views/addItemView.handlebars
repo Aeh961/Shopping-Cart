@@ -1,0 +1,44 @@
+<div class="table-responsive">
+  <form method="post" action="/items/add">
+    <table class="table table-condensed">
+      <tbody>
+        <tr>
+          <th>Item image </th>
+          <td>
+            <input type="text" name="imageUrl" required placeholder="Item image url"
+              onchange="document.getElementById('itemImage').src = this.value;">
+            <img id="itemImage" src="https://pic.onlinewebfonts.com/svg/img_148071.png"
+              style="max-width:200px;max-height:200px;">
+          </td>
+        </tr>
+
+        <tr>
+          <th>Item Name: </th>
+          <td><input type="text" name="itemName" required placeholder="Item"></td>
+        </tr>
+        <tr>
+          <th> Description: </th>
+          <td><input type="text" name="description" required placeholder="Description"></td>
+        </tr>
+        <tr>
+          <th>Price: </th>
+          <td><input type="text" name="price" required placeholder="price"></td>
+        </tr>
+        <tr>
+          <th>Quantity: </th>
+          <td><input type="text" name="quantity" required placeholder="quantity"></td>
+        </tr>
+
+      </tbody>
+      <tfooter>
+        <tr>
+          <td></td>
+          <td>
+            <input type="submit" value="Save" class="btn btn-success">
+            <input type="button" value="Cancel" class="btn btn-danger" onclick="cancelAdd()">
+          </td>
+        </tr>
+      </tfooter>
+    </table>
+  </form>
+</div>

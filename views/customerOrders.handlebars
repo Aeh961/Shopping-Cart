@@ -1,0 +1,48 @@
+<h1>{{name}}'s Shopping Order</h1>
+{{#if orderItems.length}}
+
+<div class="table-responsive">
+  <table class="table table-condensed">
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Image</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Item Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each orderItems}}
+      <tr>
+        <td>{{this.itemName}}</td>
+        <td><img src="{{this.imageUrl}}" alt="{{this.imageUrl}}"></td>
+        <td>{{this.description}}</td>
+        <td>${{this.price}}</td>
+        <td>{{this.quantity}}</td>
+        <td>
+          <form action="/orders/{{customerId}}/items/{{this.itemId}}/update" method="POST">
+            <input type="number" name="quantity" value="{{this.quantity}}">
+            <button type="submit">Update</button>
+          </form>
+          <form action='/orders/{{customerId}}/items/{{this.itemId}}/remove' method="GET">
+            <button type="submit">Remove</button>
+          </form>
+        </td>
+      </tr>
+      {{/each}}
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="3"><b>Total:</b></td>
+        <td><b>${{total}}</b></td>
+        <td></td>
+      </tr>
+    </tfoot>
+  </table>
+  {{else}}
+  <p> no Orders yet!</p>
+  {{/if}}
+  </table>
+</div>

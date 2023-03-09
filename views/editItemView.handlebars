@@ -1,0 +1,43 @@
+<div class="table-responsive">
+  <form method="post" action='/items/edit'>
+    <table class="table table-condensed">
+      <tbody>
+        <tr>
+          <th> Item image:</th>
+          <td><input type="text" name="imageUrl" required placeholder="Item image url"
+              onchange="document.getElementById('itemImage').src = this.value;">
+            <img id="itemImage" src="https://pic.onlinewebfonts.com/svg/img_148071.png"
+              style="max-width:200px;max-height:200px;" </td>
+        </tr>
+        <tr>
+          <th>Item Name: </td>
+          <td><input type="text" name="name" required size="20" value="{{data.itemName}}"></td>
+        </tr>
+        <tr>
+          <th>description: </td>
+          <td><input type="text" name="description" required size="20" value="{{data.description}}"></td>
+          </th>
+        </tr>
+        <th>price in $: </td>
+        <td><input type="text" name="price" required size="20" value="{{data.price}}"></td>
+        </tr>
+        <tr>
+          <th>Quantity: </td>
+          <td><input type="text" name="quantity" required size="20" value="{{data.quantity}}"></td>
+
+        </tr>
+        <input type="hidden" name="id" value="{{data.id}}">
+
+      </tbody>
+      <tfooter>
+        <tr>
+          <td></td>
+          <td>
+            <input type="submit" value="Save" class="btn btn-success">
+            <input type="button" value="Cancel" class="btn btn-danger" class="cancel" onclick="cancelAdd()">
+          </td>
+        </tr>
+      </tfooter>
+    </table>
+  </form>
+</div>

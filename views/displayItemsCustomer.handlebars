@@ -1,0 +1,54 @@
+<div class="container">
+  <form method="get" action="/customer/{{idCus}}/items">
+    <div class="form-group">
+      <input type="text" name="search" class="form-control" placeholder="Search by name or description" value="{{query}}">
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+  </form>
+  <h1>{{name}}'s Shopping List</h1>
+
+
+  <div class="table-responsive">
+    <table class="table table-condensed">
+      {{#if data}}
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Image</th>
+          <th>Description</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Item Needed</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each data}}
+        <tr>
+          <td>{{this.itemName}}</td>
+          <td><img src="{{this.imageUrl}}" alt="{{this.imageUrl}}"></td>
+          <td>{{this.description}}</td>
+          <td>${{this.price}}</td>
+          <td>{{this.quantity}}</td>
+          <td>
+
+            <form method="post" action="/customer/{{this.idCus}}/items">
+              <input type="hidden" name="itemId" value="{{this.id}}">
+              <input type="hidden" name="itemName" value="{{this.itemName}}">
+              <input type="hidden" name="imageUrl" value="{{this.imageUrl}}">
+              <input type="hidden" name="price" value="{{this.price}}">
+              <input type="number" name="quantity" value="0">
+              <button type="submit" class="btn btn-success">Save</button>
+            </form>
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+      {{else}}
+      <tr>
+        <td colspan="5">No items found for this customer</td>
+      </tr>
+      {{/if}}
+    </table>
+  </div>
+
+</div>
